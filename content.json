@@ -1,0 +1,84 @@
+{
+  "settings": {
+    "siteDescription": "AEROFRAME.ID — Jasa drone untuk mapping dan videografi area Yogyakarta dan sekitarnya."
+  },
+  "gallery": [
+    {
+      "type": "mapping",
+      "tag": "Mapping",
+      "src": "assets/gallery/fotopeta.jpeg",
+      "title": "Pemataan",
+      "desc": "Pemetaan dengan drone output berupa peta foto udara, peta DEM, dll"
+    },
+    {
+      "type": "video",
+      "tag": "Video Pemetaan",
+      "src": "assets/gallery/properti.mp4",
+      "title": "Promosi Properti",
+      "desc": "Video promosi properti seperti lahan, luasan tanah, dan bangunan"
+    },
+    {
+      "type": "video",
+      "tag": "Acara",
+      "src": "assets/gallery/cinema.MP4",
+      "title": "Dokumentasi Acara",
+      "desc": "Dokumentasi suatu acara atau kegiatan untuk mendapatkan momen dari foto video udara"
+    },
+    {
+      "type": "video",
+      "tag": "Promosi",
+      "src": "assets/gallery/promosi.mp4",
+      "title": "Video Promosi Resto, Resort, Cafe, dll",
+      "desc": "Videografi untuk promosi suatu tempat seperti Resto, Resort, Cafe, dll"
+    },
+    {
+      "type": "video",
+      "tag": "Wisata",
+      "src": "assets/gallery/wisata.mp4",
+      "title": "Event / Travel",
+      "desc": "Footage udara untuk event, travel, dan kebutuhan konten."
+    }
+  ],
+  "portfolio": [
+    {
+      "type": "mapping",
+      "typeLabel": "Pemetaan",
+      "tag": "MAPPING",
+      "src": "assets/portfolio/fotopeta.jpeg",
+      "title": "Area Mapping & Site Documentation",
+      "desc": "Visual udara untuk membantu memahami kondisi dan gambaran sebuah area."
+    },
+    {
+      "type": "video",
+      "typeLabel": "Pemetaan",
+      "tag": "VIDEO",
+      "src": "assets/portfolio/properti.mp4",
+      "title": "Aerial Property Showcase",
+      "desc": "Footage udara untuk memperkuat presentasi visual properti dan lingkungan sekitar."
+    },
+    {
+      "type": "video",
+      "typeLabel": "Documentation",
+      "tag": "VIDEO",
+      "src": "assets/portfolio/cinema.MP4",
+      "title": "Progress & Event Capture",
+      "desc": "Dokumentasi udara untuk menangkap perkembangan, aktivitas, atau momen penting."
+    },
+    {
+      "type": "video",
+      "typeLabel": "Promosi",
+      "tag": "Promosi",
+      "src": "assets/portfolio/promosi.mp4",
+      "title": "Promosi Resort, Resto, Cafe, dll",
+      "desc": "Pembuatan Video promosi suatu tempat atau produk"
+    },
+    {
+      "type": "video",
+      "typeLabel": "Documentation",
+      "tag": "Wisata",
+      "src": "assets/portfolio/wisata.mp4",
+      "title": "Dokumentasi Tour dan Wisata",
+      "desc": "Video tour wisata"
+    }
+  ]
+}

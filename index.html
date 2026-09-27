@@ -1,0 +1,495 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#183c21" />
+  <meta name="description" content="AEROFRAME.ID — Jasa drone untuk mapping dan videografi area Yogyakarta dan sekitarnya." />
+  <title>AEROFRAME.ID — Drone Mapping & Videography</title>
+  <link rel="icon" type="image/png" href="assets/logo.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --green:#183c21;
+      --green-2:#3c7546;
+      --lime:#8bb65d;
+      --ink:#101311;
+      --muted:#68716b;
+      --line:#e6e9e6;
+      --paper:#fff;
+      --soft:#f6f8f5;
+      --soft-2:#edf3eb;
+      --shadow:0 18px 50px rgba(16,38,20,.09);
+      --radius:24px;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;background:var(--paper);color:var(--ink);font-family:"DM Sans",sans-serif;line-height:1.6}
+    body.no-scroll{overflow:hidden}
+    a{text-decoration:none;color:inherit}
+    img{max-width:100%;display:block}
+    .container{width:min(1120px,calc(100% - 40px));margin:auto}
+
+    header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.94);backdrop-filter:blur(14px);border-bottom:1px solid rgba(230,233,230,.85)}
+    .nav{height:76px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+    .brand{display:flex;align-items:center;gap:11px;font-family:"Space Grotesk",sans-serif;font-weight:700;letter-spacing:-.03em}
+    .brand img{width:40px;height:40px;object-fit:contain}
+    .brand span{font-size:17px}
+    .navlinks{display:flex;align-items:center;gap:26px;font-size:14px;color:#4c554f}
+    .navlinks a:hover{color:var(--green)}
+    .navcta{padding:11px 15px;border-radius:12px;background:var(--green);color:white;font-weight:600;font-size:13px}
+
+    .hero{padding:76px 0 62px}
+    .hero-grid{display:grid;grid-template-columns:1.05fr .95fr;align-items:center;gap:64px}
+    .eyebrow{display:inline-flex;align-items:center;gap:9px;color:var(--green);font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
+    .dot{width:8px;height:8px;border-radius:50%;background:var(--lime)}
+    h1{margin:18px 0 18px;font-family:"Space Grotesk",sans-serif;font-size:clamp(50px,6vw,78px);line-height:.96;letter-spacing:-.06em;max-width:720px}
+    h1 .green{color:var(--green)}
+    .hero-copy{max-width:600px;font-size:18px;color:var(--muted)}
+    .hero-actions{display:flex;gap:11px;flex-wrap:wrap;margin-top:28px}
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;padding:13px 17px;border-radius:13px;border:1px solid var(--line);font-weight:700;font-size:14px;transition:.2s ease}
+    .btn.primary{background:var(--green);color:#fff;border-color:var(--green)}
+    .btn.primary:hover{transform:translateY(-2px);box-shadow:0 12px 24px rgba(24,60,33,.18)}
+    .btn.secondary:hover{border-color:#cbd2cc;transform:translateY(-2px)}
+    .microfacts{display:flex;gap:26px;flex-wrap:wrap;margin-top:30px;padding-top:22px;border-top:1px solid var(--line)}
+    .fact strong{display:block;font-family:"Space Grotesk",sans-serif;font-size:20px}
+    .fact span{font-size:12px;color:var(--muted)}
+
+    .hero-visual{position:relative;min-height:520px;border:1px solid #dfe7df;border-radius:32px;background:linear-gradient(150deg,#eff5ed,#fbfcfa);overflow:hidden;box-shadow:var(--shadow)}
+    .hero-visual:before{content:"";position:absolute;inset:0;background:linear-gradient(115deg,transparent 0 54%,rgba(24,60,33,.08) 54.2% 54.5%,transparent 54.7% 100%),linear-gradient(25deg,transparent 0 38%,rgba(24,60,33,.07) 38.2% 38.5%,transparent 38.7% 100%)}
+    .hero-gridline{position:absolute;inset:0;background-image:linear-gradient(rgba(24,60,33,.07) 1px,transparent 1px),linear-gradient(90deg,rgba(24,60,33,.07) 1px,transparent 1px);background-size:34px 34px;mask-image:linear-gradient(to bottom,transparent,rgba(0,0,0,.65))}
+    .hero-logo{position:absolute;left:28px;top:28px;width:106px;padding:10px;background:rgba(255,255,255,.82);border:1px solid #dce6dc;border-radius:16px}
+    .hero-circle{position:absolute;right:-60px;bottom:-75px;width:320px;height:320px;border-radius:50%;border:1px solid rgba(24,60,33,.17)}
+    .hero-circle:after{content:"";position:absolute;inset:44px;border:1px dashed rgba(24,60,33,.18);border-radius:50%}
+    .capture-frame{position:absolute;left:13%;top:19%;width:74%;height:53%;border:1px solid rgba(24,60,33,.34);border-radius:22px;transform:rotate(-5deg)}
+    .capture-frame:before,.capture-frame:after{content:"";position:absolute;width:9px;height:9px;border-radius:50%;background:var(--green-2)}
+    .capture-frame:before{left:-5px;top:-5px;box-shadow:calc(100% + 0px) 0 0 var(--green-2),0 calc(100% + 0px) 0 var(--green-2),calc(100% + 0px) calc(100% + 0px) 0 var(--green-2)}
+    .drone{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:220px;height:132px}
+    .drone-body{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:88px;height:43px;background:var(--green);border-radius:14px 14px 18px 18px;box-shadow:0 16px 22px rgba(24,60,33,.18)}
+    .drone-body:before{content:"";position:absolute;left:31px;bottom:-27px;width:24px;height:27px;background:#fff;border:5px solid var(--green);border-top:0;border-radius:0 0 14px 14px}
+    .arm{position:absolute;top:46%;width:80px;height:7px;background:var(--green);border-radius:10px}
+    .arm.left{left:2px;transform:rotate(-18deg)} .arm.right{right:2px;transform:rotate(18deg)}
+    .motor{position:absolute;top:21%;width:34px;height:34px;border:6px solid var(--green);border-radius:50%;background:#fff}
+    .motor.left{left:0}.motor.right{right:0}
+    .prop{position:absolute;top:5%;width:70px;height:11px;border-top:4px solid var(--green);border-radius:50%}
+    .prop.left{left:-18px}.prop.right{right:-18px}
+    .hero-label{position:absolute;right:26px;bottom:25px;font-size:12px;font-weight:700;letter-spacing:.04em;color:var(--green)}
+    .hero-label span{display:block;color:var(--muted);font-weight:500;letter-spacing:0;margin-top:3px}
+
+    section{padding:86px 0}
+    .section-head{display:flex;align-items:end;justify-content:space-between;gap:32px;margin-bottom:34px}
+    .kicker{font-size:12px;text-transform:uppercase;letter-spacing:.13em;color:var(--green-2);font-weight:800;margin-bottom:10px}
+    h2{margin:0;font-family:"Space Grotesk",sans-serif;font-size:clamp(35px,4vw,52px);line-height:1.02;letter-spacing:-.045em;max-width:700px}
+    .lead{max-width:520px;color:var(--muted);margin:0}
+
+    .about{display:grid;grid-template-columns:.9fr 1.1fr;gap:54px;align-items:start}
+    .about-mark{position:relative;min-height:360px;border-radius:28px;background:var(--green);overflow:hidden;display:flex;align-items:flex-end;padding:28px;color:#fff}
+    .about-mark img{width:150px;filter:brightness(0) invert(1);opacity:.92;position:absolute;left:28px;top:28px}
+    .about-mark .outline{position:absolute;width:370px;height:370px;border:1px solid rgba(255,255,255,.17);border-radius:50%;right:-160px;bottom:-180px}
+    .about-mark .outline:after{content:"";position:absolute;inset:44px;border:1px dashed rgba(255,255,255,.18);border-radius:50%}
+    .about-mark-copy{position:relative;z-index:2;max-width:390px}
+    .about-mark-copy strong{font:600 28px/1.1 "Space Grotesk",sans-serif;display:block;letter-spacing:-.035em}
+    .about-mark-copy span{display:block;color:#c5d4c7;font-size:13px;margin-top:8px}
+    .about-copy p{color:var(--muted);max-width:640px}
+    .about-list{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:24px}
+    .about-item{padding:16px;border:1px solid var(--line);border-radius:16px;background:#fff}
+    .about-item strong{font:600 17px/1.1 "Space Grotesk",sans-serif;display:block}
+    .about-item span{display:block;color:var(--muted);font-size:12px;margin-top:6px}
+
+    .services{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+    .service{position:relative;padding:30px;background:#fff;border:1px solid var(--line);border-radius:23px;min-height:286px;transition:.2s ease}
+    .service:hover{transform:translateY(-4px);box-shadow:var(--shadow);border-color:#d7dfd8}
+    .service-icon{width:50px;height:50px;border-radius:15px;background:var(--soft-2);display:grid;place-items:center;color:var(--green);font-weight:800;font-family:"Space Grotesk",sans-serif;font-size:20px}
+    .service h3{margin:23px 0 10px;font:700 24px/1.1 "Space Grotesk",sans-serif;letter-spacing:-.03em}
+    .service p{margin:0;color:var(--muted);max-width:520px}
+    .service .label{position:absolute;right:20px;top:20px;font-size:10px;color:#6c756e;background:#f5f7f5;border-radius:999px;padding:7px 8px;font-weight:700}
+
+    .dark-band{background:var(--ink);color:#fff;position:relative;overflow:hidden}
+    .dark-band:before{content:"";position:absolute;width:480px;height:480px;border-radius:50%;border:1px solid rgba(255,255,255,.11);right:-150px;top:-200px}
+    .dark-band .kicker{color:#a4cb74}.dark-band .lead{color:#adb6af}
+    .process{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;position:relative;z-index:2}
+    .step{padding:28px;border:1px solid rgba(255,255,255,.10);background:rgba(255,255,255,.035);border-radius:21px}
+    .num{font:700 13px "Space Grotesk",sans-serif;color:#a4cb74}
+    .step h3{font:700 22px/1.1 "Space Grotesk",sans-serif;margin:55px 0 10px}
+    .step p{color:#a7b0a8;margin:0}
+
+    .gallery-grid{display:grid;grid-template-columns:1.1fr .9fr .9fr;grid-template-rows:210px 210px;gap:14px}
+    .gallery-card{position:relative;overflow:hidden;border-radius:20px;background:#eef3ec;border:1px solid var(--line);cursor:pointer}
+    .gallery-card.large{grid-row:span 2}
+    .gallery-card .media-placeholder{position:absolute;inset:0;background:linear-gradient(145deg,#e6eee3,#f7f9f6)}
+    .gallery-card .media-placeholder:before{content:"";position:absolute;inset:0;background:linear-gradient(160deg,transparent 20%,rgba(24,60,33,.13) 20.5% 20.9%,transparent 21.3% 100%),linear-gradient(20deg,transparent 40%,rgba(24,60,33,.09) 40.3% 40.8%,transparent 41.2% 100%)}
+    .gallery-card .mapbox{position:absolute;inset:14% 12%;border:1px solid rgba(24,60,33,.25);border-radius:18px;transform:rotate(-4deg)}
+    .gallery-card .mapbox:after{content:"";position:absolute;inset:18px;border:1px dashed rgba(24,60,33,.2);border-radius:12px}
+    .gallery-card .media-tag{position:absolute;left:15px;top:15px;padding:7px 9px;border-radius:999px;background:rgba(255,255,255,.86);font-size:10px;font-weight:800;color:var(--green);letter-spacing:.06em}
+    .gallery-card .caption{position:absolute;left:16px;right:16px;bottom:15px;color:#fff;z-index:2}
+    .gallery-card .caption strong{display:block;font:600 17px/1.08 "Space Grotesk",sans-serif;text-shadow:0 1px 10px rgba(0,0,0,.22)}
+    .gallery-card .caption span{font-size:11px;color:rgba(255,255,255,.85)}
+    .gallery-card .shade{position:absolute;inset:45% 0 0;background:linear-gradient(transparent,rgba(0,0,0,.62));z-index:1}
+    .gallery-note{margin-top:16px;color:var(--muted);font-size:12px}
+
+    .portfolio-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+    .project{border:1px solid var(--line);border-radius:20px;overflow:hidden;background:#fff;transition:.2s ease}
+    .project:hover{transform:translateY(-4px);box-shadow:var(--shadow)}
+    .project-thumb{aspect-ratio:16/10;background:linear-gradient(140deg,#eef4eb,#f9faf8);position:relative;display:grid;place-items:center;overflow:hidden}
+    .project-thumb:before{content:"";position:absolute;width:170px;height:170px;border:1px solid rgba(24,60,33,.15);border-radius:50%;right:-55px;bottom:-65px}
+    .project-thumb:after{content:"MAPPING / AERIAL / VISUAL";font:700 10px "Space Grotesk",sans-serif;letter-spacing:.11em;color:rgba(24,60,33,.35)}
+    .project-body{padding:18px 18px 19px}
+    .project-body .type{font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--green-2);font-weight:800}
+    .project-body h3{margin:7px 0 6px;font:600 19px/1.15 "Space Grotesk",sans-serif;letter-spacing:-.02em}
+    .project-body p{margin:0;color:var(--muted);font-size:13px}
+
+    .coverage{display:grid;grid-template-columns:1.2fr .8fr;gap:18px}
+    .coverage-card{background:var(--soft);border:1px solid #e0e8df;border-radius:24px;padding:32px;min-height:290px;position:relative;overflow:hidden}
+    .coverage-card h3{font:700 34px/1 "Space Grotesk",sans-serif;letter-spacing:-.04em;margin:0 0 12px}
+    .coverage-card p{color:var(--muted);max-width:540px}
+    .pill-row{display:flex;gap:9px;flex-wrap:wrap;margin-top:20px;position:relative;z-index:2}
+    .pill{padding:9px 12px;border-radius:999px;background:#fff;border:1px solid #dfe7df;font-size:12px;font-weight:600}
+    .mini-grid{position:absolute;right:-65px;bottom:-95px;width:260px;height:260px;border-radius:50%;border:1px dashed rgba(60,117,70,.30)}
+    .mini-grid:after{content:"";position:absolute;inset:34px;border-radius:50%;border:1px dashed rgba(60,117,70,.30)}
+    .contact-card{padding:30px;background:var(--green);border-radius:24px;color:#fff;display:flex;flex-direction:column;justify-content:space-between;min-height:290px}
+    .contact-card .small{color:#bfd1c1;font-size:11px;text-transform:uppercase;letter-spacing:.12em;font-weight:700}
+    .contact-card h3{font:700 34px/1.04 "Space Grotesk",sans-serif;letter-spacing:-.04em;margin:12px 0 23px}
+    .contact-link{font-size:15px;font-weight:700}
+    .contact-note{color:#c8d8ca;font-size:12px;margin-top:8px}
+
+    .cta{padding:88px 0}
+    .cta-box{background:#f4f7f3;border:1px solid #dfe6df;border-radius:25px;padding:46px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+    .cta-box h2{max-width:640px}.cta-box p{color:var(--muted);margin:13px 0 0;max-width:600px}
+    footer{padding:28px 0;border-top:1px solid var(--line);font-size:12px;color:#6e766f}
+    .footer-row{display:flex;align-items:center;justify-content:space-between;gap:20px}
+
+    .modal{position:fixed;inset:0;display:none;align-items:center;justify-content:center;background:rgba(15,20,16,.72);z-index:100;padding:24px}
+    .modal.open{display:flex}
+    .modal-card{width:min(900px,100%);background:#fff;border-radius:24px;overflow:hidden;position:relative;box-shadow:0 30px 90px rgba(0,0,0,.25)}
+    .modal-media{min-height:520px;background:linear-gradient(145deg,#e7efe4,#f7f9f6);position:relative;display:grid;place-items:center}
+    .modal-media .mapbox{width:65%;height:62%;border:1px solid rgba(24,60,33,.24);border-radius:24px;transform:rotate(-4deg);position:relative}
+    .modal-media .mapbox:after{content:"";position:absolute;inset:24px;border:1px dashed rgba(24,60,33,.18);border-radius:18px}
+    .modal-info{padding:20px 22px 24px}.modal-info h3{margin:0;font:600 24px/1.1 "Space Grotesk",sans-serif}.modal-info p{color:var(--muted);margin:7px 0 0}
+    .modal-close{position:absolute;right:14px;top:14px;width:40px;height:40px;border:0;border-radius:50%;background:#fff;font-size:20px;cursor:pointer;z-index:2}
+
+
+    .media-fill{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
+    .gallery-card .media-placeholder{z-index:0}
+    .gallery-card .media-placeholder.custom{background:#eef3ec;display:grid;place-items:center;padding:25px;text-align:center;color:rgba(24,60,33,.5);font:600 12px/1.4 "Space Grotesk",sans-serif;letter-spacing:.05em}
+    .gallery-card .caption,.gallery-card .shade,.gallery-card .media-tag{z-index:3}
+    .project-thumb .media-fill{z-index:0}
+    .project-thumb.custom{display:grid;place-items:center;padding:24px;text-align:center;color:rgba(24,60,33,.45);font:700 10px/1.4 "Space Grotesk",sans-serif;letter-spacing:.08em}
+    .project-thumb .media-type{position:absolute;left:12px;top:12px;z-index:2;padding:7px 9px;border-radius:999px;background:rgba(255,255,255,.88);font-size:10px;font-weight:800;color:var(--green);letter-spacing:.06em}
+    .filter-row{display:flex;gap:8px;flex-wrap:wrap;margin:-6px 0 24px}
+    .filter-btn{border:1px solid var(--line);background:#fff;border-radius:999px;padding:8px 12px;font:600 12px "DM Sans",sans-serif;color:#5f6861;cursor:pointer}
+    .filter-btn.active,.filter-btn:hover{background:var(--green);border-color:var(--green);color:#fff}
+    .empty-note{padding:24px;border:1px dashed #cfd8d0;border-radius:18px;background:#fafcf9;color:var(--muted);font-size:13px;grid-column:1/-1}
+    .modal-media img,.modal-media video{width:100%;height:100%;max-height:520px;object-fit:contain;background:#0d100e;display:block;position:absolute;inset:0}
+    .modal-media .media-placeholder{position:absolute;inset:0;display:grid;place-items:center;color:rgba(24,60,33,.45);font:700 12px "Space Grotesk",sans-serif;letter-spacing:.08em;background:linear-gradient(145deg,#e7efe4,#f7f9f6)}
+    .admin-link{font-size:11px;color:#8a928c;border-bottom:1px dotted #b9c1ba}
+    .admin-link:hover{color:var(--green)}
+
+    @media(max-width:900px){
+      .hero-grid,.about,.coverage{grid-template-columns:1fr}
+      .hero-visual{min-height:430px}
+      .services,.process{grid-template-columns:1fr}
+      .portfolio-grid{grid-template-columns:1fr 1fr}
+      .gallery-grid{grid-template-columns:1fr 1fr;grid-template-rows:220px 220px}
+      .gallery-card.large{grid-row:span 1}
+      .section-head{align-items:start;flex-direction:column}
+      .about-mark{min-height:300px}
+      .cta-box{align-items:flex-start;flex-direction:column}
+    }
+    @media(max-width:680px){
+      .container{width:min(100% - 26px,1120px)}
+      .nav{height:68px}.navlinks{display:none}.navcta{padding:10px 11px;font-size:12px}
+      .brand span{font-size:15px}.brand img{width:34px;height:34px}
+      .hero{padding:48px 0 34px}h1{font-size:48px}.hero-copy{font-size:16px}
+      section{padding:64px 0}
+      .hero-visual{min-height:360px}.hero-logo{width:86px;left:18px;top:18px}.hero-label{right:18px;bottom:18px}
+      .about-list,.portfolio-grid,.gallery-grid{grid-template-columns:1fr}
+      .gallery-grid{grid-template-rows:auto}
+      .gallery-card{min-height:220px}.gallery-card.large{min-height:300px}
+      .cta{padding:64px 0}.cta-box{padding:28px;border-radius:22px}
+      .microfacts{gap:20px}.fact strong{font-size:18px}
+      .footer-row{align-items:flex-start;flex-direction:column}
+      .modal{padding:12px}.modal-media{min-height:360px}
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <a class="brand" href="#top" aria-label="AEROFRAME.ID home">
+        <img src="assets/logo.png" alt="Logo AEROFRAME.ID" />
+        <span>AEROFRAME<span style="color:var(--green)">.ID</span></span>
+      </a>
+      <nav class="navlinks" aria-label="Navigasi utama">
+        <a href="#tentang">Tentang</a>
+        <a href="#layanan">Layanan</a>
+        <a href="#galeri">Galeri</a>
+        <a href="#portfolio">Portfolio</a>
+        <a href="#area">Kontak</a>
+      </nav>
+      <a class="navcta" target="_blank" rel="noopener" href="https://wa.me/6285147040346?text=Halo%20AEROFRAME.ID%2C%20saya%20ingin%20menanyakan%20jasa%20drone.">Booking via WA</a>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <div class="eyebrow"><span class="dot"></span> Drone service · Yogyakarta</div>
+          <h1>See more.<br><span class="green">From above.</span></h1>
+          <p class="hero-copy">AEROFRAME.ID menyediakan jasa drone untuk <strong>mapping</strong> dan <strong>videografi udara</strong> di area Yogyakarta dan sekitarnya. Sederhana prosesnya, jelas kebutuhannya, rapi hasilnya.</p>
+          <div class="hero-actions">
+            <a class="btn primary" target="_blank" rel="noopener" href="https://wa.me/6285147040346?text=Halo%20AEROFRAME.ID%2C%20saya%20ingin%20booking%20jasa%20drone.">Konsultasi via WhatsApp ↗</a>
+            <a class="btn secondary" href="#portfolio">Lihat portfolio</a>
+          </div>
+          <div class="microfacts">
+            <div class="fact"><strong>30 menit</strong><span>Durasi layanan</span></div>
+            <div class="fact"><strong>DJI Mini 3</strong><span>Device utama</span></div>
+            <div class="fact"><strong>Jogja +</strong><span>Area operasional</span></div>
+          </div>
+        </div>
+        <div class="hero-visual" aria-label="Visual drone mapping AEROFRAME.ID">
+          <div class="hero-gridline"></div><div class="hero-logo"><img src="assets/logo.png" alt="AEROFRAME.ID" /></div>
+          <div class="capture-frame"></div>
+          <div class="drone" aria-hidden="true">
+            <div class="prop left"></div><div class="prop right"></div>
+            <div class="motor left"></div><div class="motor right"></div>
+            <div class="arm left"></div><div class="arm right"></div>
+            <div class="drone-body"></div>
+          </div>
+          <div class="hero-circle"></div>
+          <div class="hero-label">MAPPING / VIDEO<span>Airborne capture for real projects</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="tentang">
+      <div class="container">
+        <div class="section-head">
+          <div><div class="kicker">Tentang AEROFRAME.ID</div><h2>Layanan drone yang dibuat untuk kebutuhan nyata.</h2></div>
+          <p class="lead">AEROFRAME.ID berfokus pada pengambilan data udara dan visual dari perspektif berbeda, dengan layanan yang praktis untuk kebutuhan personal, bisnis, maupun proyek.</p>
+        </div>
+        <div class="about">
+          <div class="about-mark">
+            <img src="assets/logo.png" alt="AEROFRAME.ID" />
+            <div class="outline"></div>
+            <div class="about-mark-copy"><strong>From capture<br>to clarity.</strong><span>Drone mapping & aerial videography · Yogyakarta</span></div>
+          </div>
+          <div class="about-copy">
+            <p>Kami membantu Anda melihat lokasi dan momen dari sudut pandang udara—baik untuk dokumentasi, kebutuhan visual, maupun pekerjaan yang memerlukan data berbasis lokasi. Setiap pengambilan diawali dengan memahami tujuan dan area kerja terlebih dahulu.</p>
+            <div class="about-list">
+              <div class="about-item"><strong>Praktis</strong><span>Komunikasi langsung dan alur kerja sederhana.</span></div>
+              <div class="about-item"><strong>Fleksibel</strong><span>Menyesuaikan kebutuhan mapping maupun video.</span></div>
+              <div class="about-item"><strong>Area Jogja</strong><span>Berbasis Yogyakarta dan wilayah sekitarnya.</span></div>
+              <div class="about-item"><strong>DJI Mini 3</strong><span>Device utama untuk pengambilan udara.</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="layanan">
+      <div class="container">
+        <div class="section-head">
+          <div><div class="kicker">Layanan utama</div><h2>Data udara. Visual udara. Satu layanan.</h2></div>
+          <p class="lead">Dua fokus utama AEROFRAME.ID untuk kebutuhan pemetaan dan konten visual dari udara.</p>
+        </div>
+        <div class="services">
+          <article class="service"><div class="label">01 / MAPPING</div><div class="service-icon">⌁</div><h3>Drone Mapping</h3><p>Pemetaan udara untuk dokumentasi kondisi area, foto udara, dan pekerjaan berbasis lokasi. Cocok untuk kebutuhan survei awal, dokumentasi progres, dan visualisasi area.</p></article>
+          <article class="service"><div class="label">02 / VIDEO</div><div class="service-icon">◉</div><h3>Drone Videography</h3><p>Pengambilan footage udara untuk properti, lanskap, dokumentasi kegiatan, perjalanan, promosi, dan kebutuhan konten visual dengan perspektif yang lebih luas.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="galeri">
+      <div class="container">
+        <div class="section-head">
+          <div><div class="kicker">Galeri</div><h2>Beberapa jenis visual yang bisa dibuat dari udara.</h2></div>
+          <p class="lead">Gunakan galeri ini sebagai showcase. Foto atau video proyek asli dapat menggantikan placeholder kapan saja.</p>
+        </div>
+        <div class="filter-row" aria-label="Filter galeri">
+          <button class="filter-btn active" data-filter="all">Semua</button>
+          <button class="filter-btn" data-filter="photo">Foto</button>
+          <button class="filter-btn" data-filter="video">Video</button>
+          <button class="filter-btn" data-filter="mapping">Mapping</button>
+        </div>
+        <div class="gallery-grid" id="galleryGrid"></div>
+        <div class="gallery-note" id="galleryNote">Tambahkan karya Anda melalui file <strong>content.json</strong> — tidak perlu mengedit HTML.</div>
+      </div>
+    </section>
+
+    <section class="dark-band" id="proses">
+      <div class="container">
+        <div class="section-head">
+          <div><div class="kicker">Cara kerja</div><h2>Simple process. Clear output.</h2></div>
+          <p class="lead">Mulai dari kebutuhan Anda, tentukan lokasi dan output, lalu kami siapkan pengambilan udara sesuai brief.</p>
+        </div>
+        <div class="process">
+          <article class="step"><div class="num">01</div><h3>Brief</h3><p>Jelaskan lokasi, tujuan, jenis pekerjaan, dan hasil yang ingin didapatkan.</p></article>
+          <article class="step"><div class="num">02</div><h3>Capture</h3><p>Penjadwalan dan pengambilan data atau footage udara sesuai kebutuhan.</p></article>
+          <article class="step"><div class="num">03</div><h3>Deliver</h3><p>Hasil dokumentasi disiapkan sesuai kebutuhan penggunaan dan komunikasi proyek.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="portfolio">
+      <div class="container">
+        <div class="section-head">
+          <div><div class="kicker">Portfolio proyek</div><h2>Showcase yang siap diisi dengan proyek Anda.</h2></div>
+          <p class="lead">Bagian ini dirancang untuk menampilkan pekerjaan AEROFRAME.ID secara ringkas dan profesional.</p>
+        </div>
+        <div class="portfolio-grid" id="portfolioGrid"></div>
+      </div>
+    </section>
+
+    <section id="area">
+      <div class="container">
+        <div class="coverage">
+          <div class="coverage-card">
+            <div class="kicker">Area layanan</div><h3>Yogyakarta<br>dan sekitar.</h3>
+            <p>AEROFRAME.ID melayani kebutuhan jasa drone di area Yogyakarta dan wilayah sekitarnya. Untuk lokasi di luar area, silakan konsultasikan terlebih dahulu.</p>
+            <div class="pill-row"><span class="pill">Yogyakarta</span><span class="pill">Sleman</span><span class="pill">Bantul</span><span class="pill">Kulon Progo</span><span class="pill">Gunungkidul</span><span class="pill">+ sekitar</span></div>
+            <div class="mini-grid"></div>
+          </div>
+          <div class="contact-card" id="kontak">
+            <div><div class="small">Kontak langsung</div><h3>Let's take it<br>to the sky.</h3><a class="contact-link" target="_blank" rel="noopener" href="https://wa.me/6285147040346?text=Halo%20AEROFRAME.ID%2C%20saya%20ingin%20konsultasi%20jasa%20drone.">WhatsApp · 0851 4704 0346 ↗</a><div class="contact-note">Instagram: @aeroframe.id</div></div>
+            <a class="btn" style="background:#fff;border-color:#fff;color:var(--green);width:max-content" target="_blank" rel="noopener" href="https://instagram.com/aeroframe.id">Buka Instagram ↗</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta">
+      <div class="container">
+        <div class="cta-box"><div><div class="kicker">Ready when you are</div><h2>Punya lokasi, proyek, atau ide konten?</h2><p>Kirim detail singkat melalui WhatsApp. Mulai dari lokasi dan kebutuhan Anda, lalu kita bahas format pengambilan yang sesuai.</p></div><a class="btn primary" target="_blank" rel="noopener" href="https://wa.me/6285147040346?text=Halo%20AEROFRAME.ID%2C%20saya%20ingin%20konsultasi%20tentang%20jasa%20drone.%20Lokasi%3A%20%20Kebutuhan%3A%20">Mulai konsultasi ↗</a></div>
+      </div>
+    </section>
+  </main>
+
+  <div class="modal" id="galleryModal" aria-hidden="true">
+    <div class="modal-card"><button class="modal-close" id="modalClose" aria-label="Tutup">×</button><div class="modal-media" id="modalMedia"></div><div class="modal-info"><h3 id="modalTitle">Gallery</h3><p id="modalDesc">AEROFRAME.ID</p></div></div>
+  </div>
+
+  <footer><div class="container footer-row"><span>© <span id="year"></span> AEROFRAME.ID</span><span>Drone Mapping · Drone Videography · Yogyakarta</span></div></footer>
+  <script>
+    const WA = '6285147040346';
+    const contentUrl = 'content.json';
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    const galleryGrid = document.getElementById('galleryGrid');
+    const portfolioGrid = document.getElementById('portfolioGrid');
+    const modal = document.getElementById('galleryModal');
+    const modalTitle = document.getElementById('modalTitle');
+    const modalDesc = document.getElementById('modalDesc');
+    const modalMedia = document.getElementById('modalMedia');
+
+    let galleryItems = [];
+
+    function escapeHtml(value='') {
+      return String(value).replace(/[&<>'"]/g, ch => ({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[ch]));
+    }
+
+    function normalizeType(type='photo') {
+      return ['photo','video','mapping'].includes(type) ? type : 'photo';
+    }
+
+    function mediaMarkup(item, mode='gallery') {
+      const type = normalizeType(item.type);
+      if (!item.src) {
+        return `<div class="${mode==='gallery'?'media-placeholder':'project-thumb custom'}">${mode==='gallery'?'TAMBAHKAN FOTO / VIDEO':'TAMBAHKAN COVER PORTFOLIO'}</div>`;
+      }
+      const src = escapeHtml(item.src);
+      if (type === 'video') {
+        return `<video class="media-fill" src="${src}" muted loop autoplay playsinline preload="metadata"></video>`;
+      }
+      return `<img class="media-fill" src="${src}" alt="${escapeHtml(item.title || 'AEROFRAME.ID')}" loading="lazy" onerror="this.style.display='none'; this.parentElement.classList.add('custom'); this.parentElement.insertAdjacentHTML('afterbegin','<span>FILE TIDAK DITEMUKAN</span>')">`;
+    }
+
+    function renderGallery(filter='all') {
+      const items = galleryItems.filter(item => filter === 'all' || normalizeType(item.type) === filter);
+      galleryGrid.innerHTML = '';
+      if (!items.length) {
+        galleryGrid.innerHTML = '<div class="empty-note">Belum ada item untuk filter ini. Tambahkan melalui <strong>content.json</strong>.</div>';
+        return;
+      }
+      items.forEach((item, index) => {
+        const type = normalizeType(item.type);
+        const card = document.createElement('article');
+        card.className = `gallery-card ${index===0 && filter==='all' ? 'large' : ''}`;
+        card.dataset.index = galleryItems.indexOf(item);
+        card.innerHTML = `${mediaMarkup(item,'gallery')}
+          <div class="media-tag">${escapeHtml(item.tag || (type==='video'?'VIDEO':type==='mapping'?'MAPPING':'PHOTO'))}</div>
+          <div class="shade"></div>
+          <div class="caption"><strong>${escapeHtml(item.title || 'Untitled')}</strong><span>${escapeHtml(item.desc || '')}</span></div>`;
+        card.addEventListener('click', () => openModal(item));
+        galleryGrid.appendChild(card);
+      });
+    }
+
+    function renderPortfolio(items=[]) {
+      portfolioGrid.innerHTML = '';
+      if (!items.length) {
+        portfolioGrid.innerHTML = '<div class="empty-note">Belum ada portfolio. Tambahkan proyek melalui <strong>content.json</strong>.</div>';
+        return;
+      }
+      items.forEach(item => {
+        const article = document.createElement('article');
+        article.className = 'project';
+        const type = normalizeType(item.type);
+        article.innerHTML = `<div class="project-thumb">
+          ${mediaMarkup(item,'portfolio')}
+          <div class="media-type">${escapeHtml(item.tag || item.type || 'PROJECT')}</div>
+        </div>
+        <div class="project-body"><div class="type">${escapeHtml(item.typeLabel || item.type || 'Project')}</div><h3>${escapeHtml(item.title || 'Project')}</h3><p>${escapeHtml(item.desc || '')}</p></div>`;
+        portfolioGrid.appendChild(article);
+      });
+    }
+
+    function openModal(item) {
+      modalTitle.textContent = item.title || 'Gallery';
+      modalDesc.textContent = item.desc || 'AEROFRAME.ID';
+      modalMedia.innerHTML = '';
+      if (item.src) {
+        if (normalizeType(item.type) === 'video') {
+          const video = document.createElement('video');
+          video.src = item.src; video.controls = true; video.autoplay = true; video.playsInline = true;
+          modalMedia.appendChild(video);
+        } else {
+          const img = document.createElement('img'); img.src = item.src; img.alt = item.title || 'AEROFRAME.ID'; img.loading = 'eager'; modalMedia.appendChild(img);
+        }
+      } else {
+        modalMedia.innerHTML = '<div class="media-placeholder">MEDIA BELUM DITAMBAHKAN</div>';
+      }
+      modal.classList.add('open'); modal.setAttribute('aria-hidden','false'); document.body.classList.add('no-scroll');
+    }
+    function closeModal(){ modal.classList.remove('open'); modal.setAttribute('aria-hidden','true'); document.body.classList.remove('no-scroll'); modalMedia.innerHTML=''; }
+    document.getElementById('modalClose').addEventListener('click', closeModal);
+    modal.addEventListener('click', e => { if(e.target === modal) closeModal(); });
+    document.addEventListener('keydown', e => { if(e.key === 'Escape') closeModal(); });
+
+    document.querySelectorAll('.filter-btn').forEach(btn => btn.addEventListener('click', () => {
+      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active'); renderGallery(btn.dataset.filter);
+    }));
+
+    async function loadContent() {
+      try {
+        const res = await fetch(contentUrl, {cache:'no-store'});
+        if (!res.ok) throw new Error('content.json tidak ditemukan');
+        const data = await res.json();
+        galleryItems = Array.isArray(data.gallery) ? data.gallery : [];
+        renderGallery('all');
+        renderPortfolio(Array.isArray(data.portfolio) ? data.portfolio : []);
+        if (data.settings?.siteDescription) document.querySelector('meta[name="description"]').setAttribute('content', data.settings.siteDescription);
+      } catch (err) {
+        galleryItems = [];
+        renderGallery('all'); renderPortfolio([]);
+        document.getElementById('galleryNote').innerHTML = 'Website tidak menemukan <strong>content.json</strong>. Pastikan file tersebut berada satu folder dengan <strong>index.html</strong>.';
+        console.error(err);
+      }
+    }
+    loadContent();
+  </script>
+</body>
+</html>
